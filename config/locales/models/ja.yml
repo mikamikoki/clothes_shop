@@ -1,0 +1,15 @@
+ ja:
+    activerecord:
+      models:
+        customer: 会員
+      attributes:
+        customer:
+          last_name: 苗字
+          first_name: 名前       
+          last_name_kana: フリガナ（苗字）
+          first_name_kana: フリガナ（名前）
+          password: パスワード
+          post_code: 郵便番号
+          address: 住所 
+          phone_number: 電話番号
+          email: メールアドレス

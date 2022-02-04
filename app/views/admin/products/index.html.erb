@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class='col-lg-2'>
+			<h5>商品一覧</h5>
+			<div class="success"><%= flash[:success] %></div>
+		</div>
+		<div class='col-lg-8'></div>
+		<div class='col-lg-2'>
+			<h2>
+				<%=link_to("products/new") do %>
+	    		<button class="btn-circle-flat btn-lg fas fa-plus"></button>
+				<%end%>
+			</h2>
+		</div>
+	</div>
+</div>
+	<table class="table table-inverse">
+	<thead>
+		<tr bgcolor=" #edc5c0">
+			<th>商品ID</th>
+			<th>商品名</th>
+			<th>税抜価格</th>
+			<th>ジャンル</th>
+			<th>ステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+			<tr>
+				<th><%= product.id %></th>
+				<th><%= link_to product.name, admin_product_path(product) %></th>
+				<th>￥<%= (product.price).to_s(:delimited) %></th>
+				<th><%= product.genre.name %></th>
+				<th><% if product.sales_status == true %>
+						販売中
+					<% else %>
+						販売停止中
+					<% end %>
+				</th>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @products %>
