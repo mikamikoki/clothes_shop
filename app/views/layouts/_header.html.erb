@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-black">
     <div class="container">
       <% if admin_signed_in? %>
       <%= link_to "服屋さん", admin_products_path, class: "fas fa birthday-cake navbar-brand"%>
@@ -18,48 +18,48 @@
           ようこそ、<%= current_customer.last_name %>さん！
         </li>
         <li>
-          <%= link_to "マイページ",customers_path(current_customer),class: "nav-link text-dark" %>
+          <%= link_to "マイページ",customers_path(current_customer),class: "nav-link text-light" %>
         </li>
         <li>
-          <%= link_to "商品一覧",products_path,class: "nav-link text-dark" %>
+          <%= link_to "商品一覧",products_path,class: "nav-link text-light" %>
         </li>
         <li>
-          <%= link_to "カート",customers_cart_products_path,class: "nav-link text-dark" %>
+          <%= link_to "カート",customers_cart_products_path,class: "nav-link text-light" %>
         </li>
         <li>
-          <%= link_to "ログアウト",destroy_customer_session_path,method: :delete,class: "nav-link text-dark" %>
+          <%= link_to "ログアウト",destroy_customer_session_path,method: :delete,class: "nav-link text-light" %>
         </li>
 
       <% elsif admin_signed_in? %>
 
         <li>
-          <%= link_to"商品一覧", admin_products_path,class: "nav-link text-dark" %>
+          <%= link_to"商品一覧", admin_products_path,class: "nav-link text-light" %>
         </li>
         <li>
-          <%= link_to"会員一覧",admin_customers_path,class: "nav-link text-dark" %>
+          <%= link_to"会員一覧",admin_customers_path,class: "nav-link text-light" %>
         </li>
         <li>
-          <%= link_to "注文履歴一覧",admin_orders_path,class: "nav-link text-dark" %>
+          <%= link_to "注文履歴一覧",admin_orders_path,class: "nav-link text-light" %>
         </li>
         <li>
           <%= link_to "ジャンル一覧",admin_genres_path, class: "nav-link text-dark" %>
         </li>
         <li>
-          <%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: "nav-link text-dark"%>
+          <%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: "nav-link text-light"%>
         </li>
 
       <%else%>
         <li>
-          <%= link_to "About",about_path,class: "nav-link text-dark" %>
+          <%= link_to "About",about_path,class: "nav-link text-light" %>
         </li>
         <li>
-          <%= link_to "商品一覧",products_path,class: "nav-link text-dark" %>
+          <%= link_to "商品一覧",products_path,class: "nav-link text-light" %>
         </li>
         <li>
-          <%= link_to "新規登録" ,new_customer_registration_path,data: {"turbolinks" => false},class: "nav-link text-dark" %>
+          <%= link_to "新規登録" ,new_customer_registration_path,data: {"turbolinks" => false},class: "nav-link text-light" %>
         </li>
         <li>
-          <%= link_to "ログイン",new_customer_session_path,class: "nav-link text-dark" %>
+          <%= link_to "ログイン",new_customer_session_path,class: "nav-link text-light" %>
         </li>
 
       <%end%>
