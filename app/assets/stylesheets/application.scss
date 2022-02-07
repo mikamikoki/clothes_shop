@@ -16,10 +16,17 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sedgwick+Ave&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
+
+ * { font-family: 'Sedgwick Ave', sans-serif; }
+
  .jumbotron {
   background-image: image-url("back.image1.jpeg");
   background-size: cover;
   margin-bottom: 0 !important;
+  // padding: 5rem;
+  min-height: 100vh;
 }
 
 
@@ -62,15 +69,17 @@ footer{
     text-align: center;
     margin-top: auto;
     padding-top: 20px;
+    position: fixed; /* 固定 */
+    bottom: 0; /* 一番下に表示 */
 }
 ul.footer-menu li {
 display: inline;
 }
 
 
-body {
-  background-color: #FFE4E1;
-}
+// body {
+//   background-color: #FFE4E1;
+// }
 .table {
   background-color: #fff9e8;
 }
