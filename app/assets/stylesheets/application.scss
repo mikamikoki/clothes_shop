@@ -58,7 +58,7 @@
    padding-top: 17px;
    padding-right: 10px;
    font-weight: bold;
-   color: #444444;
+   color: white;
  }
 
 
@@ -103,8 +103,8 @@ a {
 
 .example p {
   position: absolute;/*絶対配置*/
-  color: rgba(60,60,60, 0.8);
-  top: 40%;
+  color: red;
+  top: 90%;
   left: 5%;
   font-weight: bold;
   font-size: 1.5em;
@@ -123,12 +123,12 @@ a {
 
 .example p1 {
   position: absolute;/*絶対配置*/
-  color: rgba(80,80,80, 0.8);
+  color: white;
   top: 50%;
   left: 5%;
   font-weight: bold;
   font-size: 1.5em;
-  font-family: 'Otomanopee One', sans-serif;
+  // font-family: 'Otomanopee One', sans-serif;
   }
 
 .example img {

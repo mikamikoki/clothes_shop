@@ -1,24 +1,20 @@
 <div class="row">
-	<div class="col-md-3">
-		<%= render 'genre_serch_form', genres: @genres %>
-    </div>
+	<!--<div class="col-md-3">-->
+	<!--	<#%= render 'genre_serch_form', genres: @genres %>-->
+ <!--   </div>-->
    <div class="col-md-8 offset-xs-1">
 					   	<div class="example">
-					      <%= image_tag("服.png", class:"img img-fluid") %>
+					      <%= image_tag("parkar.jpeg", class:"img img-fluid") %>
 					      <% if customer_signed_in? %>
 					      <p>
-					      	長野の老舗ケーキ店<br>
-							こだわりの「素材」<br>
-							手作りケーキ<br>
-							とろ～りなめらかな舌触り。<br>
-							そして食べた人の最高の笑顔。<br>
-							私たちは、そんな“おいしさの幸せ”をお届けします。
+					      	To everyone who enjoys fashion<br>
+
 					      </p>
 					      <% elsif admin_signed_in? %>
 					      <p>管理者ページ</p>
 					      <%else%>
 					      <p1>
-					      	ようこそ、服屋さんへ！<br>
+					      	ようこそ、LEVIRへ<br>
 							このサイトは、服販売の<br>
 							ECサイトになります。<br>
 							会員でない方も商品の閲覧はできますが、<br>
@@ -44,7 +40,7 @@
     	      </div>
 		  </div>
 		<div class="index-link">
-		  <%= link_to "もっと見る>", products_path %>
+		  <%= link_to "もっと見る>", products_path,class: "nav-link text-dark" %>
 	    </div>
   </div>
 </div>
