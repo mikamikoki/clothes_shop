@@ -28,7 +28,7 @@
 		<% @products.each do |product| %>
 			<tr>
 				<th><%= product.id %></th>
-				<th><%= link_to product.name, admin_product_path(product) %></th>
+				<th class="products_name"><%= link_to product.name, admin_product_path(product) %></th>
 				<th>￥<%= (product.price).to_s(:delimited) %></th>
 				<th><%= product.genre.name %></th>
 				<th><% if product.sales_status == true %>

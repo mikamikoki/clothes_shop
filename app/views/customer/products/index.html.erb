@@ -13,7 +13,7 @@
                             <% end %>
 
 
-                        <%= link_to product.name, product_path(product) %><br>
+                        <%= link_to product.name, product_path(product),class: "nav-link text-dark" %><br>
 
 
                     　　￥<%= (product.price * 1.1).to_i.to_s(:delimited) %>
