@@ -18,3 +18,15 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  let billingAmount = $('#billing-amount').text()
+  let nextButton = $('#next-button')
+
+  if (billingAmount === "¥0") {
+    nextButton.css('pointer-events','none')
+
+    // oの場合は,クリックするとアラートを出す
+    alert('数量が0です')
+  }
+})

@@ -51,14 +51,14 @@
     <table class="table table-bordered">
         <tr>
             <td class="info col-2"><strong>合計金額</strong></td>
-            <td class="col-1">¥<%= @total_price.floor.to_s(:delimited, delimiter: ',') %></td>
+            <td class="col-1" id="billing-amount">¥<%= @total_price.floor.to_s(:delimited, delimiter: ',') %></td>
         </tr>
     </table>
 </div>
 
 <div class = "col-4 offset-4">
     <span>
-        <%= link_to "情報入力に進む", confirm_customers_orders_path, class: "col-12 btn btn-success"%>
+        <%= link_to "情報入力に進む", confirm_customers_orders_path, class: "col-12 btn btn-success", id: "next-button" %>
     </span>
     </div>
 </div>
