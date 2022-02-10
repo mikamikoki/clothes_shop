@@ -6,7 +6,7 @@ class OrderMailer < ApplicationMailer
 
   mail(
     from: 'system@example.com',
-    to:   'angjisanshang@gmail.com',
+    to:   'ENV[MAIL_ADDRESS]',
     subject: '購入確定通知'
   )
   end
