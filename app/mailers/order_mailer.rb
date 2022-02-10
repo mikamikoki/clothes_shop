@@ -9,5 +9,6 @@ class OrderMailer < ApplicationMailer
     to:   'ENV[MAIL_ADDRESS]',
     subject: '購入確定通知'
   )
+
   end
 end
