@@ -76,3 +76,5 @@ gem 'pry-byebug'
 gem "enum_help"
 
 gem 'rails-i18n'
+
+gem 'dotenv-rails'

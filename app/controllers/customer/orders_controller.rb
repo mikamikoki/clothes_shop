@@ -11,6 +11,9 @@ class Customer::OrdersController < ApplicationController
 
  def create
   customer = current_customer
+  # if customer.save
+  #     OrderMailer.with(customer).order_mail.deliver_later
+  # end
 
    #sessionを使ってデータを一時保存
   session[:order] = Order.new
@@ -65,12 +68,11 @@ class Customer::OrdersController < ApplicationController
 
  def new
   @cart_products = current_customer.cart_products
-  # byebug
  end
 
  def thanx
+  @customer = current_customer
   order = Order.new(session[:order])
-  order.save
 
   if session[:new_address]
    shipping_address = current_customer.addresses.new
@@ -95,6 +97,12 @@ class Customer::OrdersController < ApplicationController
 
   #購入後はカート内商品削除
   cart_products.destroy_all
+
+  @customer = current_customer
+  if order.save
+      OrderMailer.with(customer: @customer).order_mail.deliver_later
+  end
+
  end
 
  def index
