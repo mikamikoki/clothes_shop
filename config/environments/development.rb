@@ -33,12 +33,14 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
+  mail = ENV['MAIL_ADDRESS']
+  pass = ENV['SECRET_KEY']
   config.action_mailer.smtp_settings = {
     port:                 587,
     address:              'smtp.gmail.com',
     domain:               'gmail.com',
-    user_name:            'ENV[MAIL_ADDRESS]',
-    password:             'ENV[SECRET_KEY]',
+    user_name:            mail,
+    password:             pass,
     authentication:       'login',
     enable_starttls_auto: true
   }
