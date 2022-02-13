@@ -11,9 +11,7 @@ class Customer::OrdersController < ApplicationController
 
  def create
   customer = current_customer
-  # if customer.save
-  #     OrderMailer.with(customer).order_mail.deliver_later
-  # end
+
 
    #sessionを使ってデータを一時保存
   session[:order] = Order.new
@@ -32,7 +30,11 @@ class Customer::OrdersController < ApplicationController
   session[:order][:customer_id] = current_customer.id
   # ラジオボタンで選択された支払方法のenum番号を渡している
 		session[:order][:payment_method] = params[:method].to_i
-
+		session[:order][:cash_on_delivery] = 0
+		if session[:order][:payment_method] == "代金引換"
+		 session[:order][:cash_on_delivery] = 500
+		 session[:order][:billing_amount] = session[:order][:billing_amount] + session[:order][:cash_on_delivery]
+		end
   #ラジオボタンの支払い方法のenum番号を渡している
   destination = params[:a_method].to_i
 
@@ -42,11 +44,11 @@ class Customer::OrdersController < ApplicationController
    session[:order][:address] = customer.address
    session[:order][:name] = customer.last_name + customer.first_name
 
-  elsif destination == 1
-   address Address.find(params[:adress_for_order])
-   session[:order][:post_code] = address.post_code
-   session[:order][:address] = address.address
-   session[:order][:name] = address.name
+  # elsif destination == 1
+  #  address Address.find(params[:adress_for_order])
+  #  session[:order][:post_code] = address.post_code
+  #  session[:order][:address] = address.address
+  #  session[:order][:name] = address.name
 
   #新しい届け先が選択されたとき
   elsif destination == 2
@@ -83,26 +85,24 @@ class Customer::OrdersController < ApplicationController
    session[:new_address] = nil
   end
 
-  #以下order_detail
-  cart_products = current_customer.cart_products
-  cart_products.each do |cart_product|
+  @customer = current_customer
+  if order.save
+    cart_products = current_customer.cart_products
+    cart_products.each do |cart_product|
     order_detail = OrderDetail.new
     order_detail.order_id = order.id
     order_detail.order_quantity = cart_product.amount
     order_detail.created_status = 0
     order_detail.price = (cart_product.product.price * 1.1).floor
     order_detail.product_id = cart_product.product_id
-    order_detail.save
+    order_detail.save!
+  end
+    OrderMailer.with(customer: @customer).order_mail(@customer.email).deliver_later #saveが成功するとメールを送信する
+    OrderMailer.with(customer: @customer).order_mail(ENV['MAIL_ADDRESS']).deliver_later #saveが成功するとメールを送信する
   end
 
   #購入後はカート内商品削除
   cart_products.destroy_all
-
-  @customer = current_customer
-  if order.save
-      OrderMailer.with(customer: @customer).order_mail.deliver_later
-  end
-
  end
 
  def index
@@ -113,9 +113,5 @@ class Customer::OrdersController < ApplicationController
   @order = Order.find(params[:id])
   @order_details = @order.order_details
  end
-
-
-
-
 
 end
