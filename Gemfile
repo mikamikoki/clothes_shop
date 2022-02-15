@@ -78,3 +78,7 @@ gem "enum_help"
 gem 'rails-i18n'
 
 gem 'dotenv-rails'
+
+group :production do
+gem 'mysql2'
+end
