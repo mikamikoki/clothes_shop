@@ -12,6 +12,7 @@
 			<th nowrap>ステータス</th>
 			<th nowrap>注文詳細</th>
 		</tr>
+		<%= paginate @orders %>
 		<% @orders.each do |order|%>
 		<tr>
 			<td nowrap><%= order.created_at.strftime('%Y/%m/%d') %></td>

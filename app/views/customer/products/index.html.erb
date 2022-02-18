@@ -2,9 +2,10 @@
     <!--<div class="col-md-3">-->
     <!--    <#%= render 'genre_serch_form', genres: @genres %>-->
     <!--</div>-->
-  	<div class="col-md-8 offset-xs-1">
+  	<div class="col-md-8 offset-sm-1">
       <h2><%= "#{@index}一覧 （全#{@products_all.count}件）" %></h2>
-          <div class="d-flex flex-wrap mb-3 w-100">
+          <div class="flex-wrap mb-3 w-100">
+              <%= paginate @products %>
                 <% @products.each do |product| %>
 
                     <div class="w-25">
@@ -18,12 +19,7 @@
 
                     　　￥<%= (product.price * 1.1).to_i.to_s(:delimited) %>
                     </div>
-
-               <% end %>
+                <% end %>
           </div>
-          <%= paginate @products %>
     </div>
-
-
-
 </div>

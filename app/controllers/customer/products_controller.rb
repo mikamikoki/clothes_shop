@@ -7,11 +7,11 @@ before_action :authenticate_customer!, only: [:show]
    if params[:genre_id].nil?
       @products_all = Product.joins(:genre).where(genres: { is_genres_status: true }).where(sales_status: true).order(created_at: :desc)
       # ジャンルが有効かつ商品も販売中の商品のみ表示させる
-      @products = @products_all.page(params[:page]).per(8)
+      @products = @products_all.page(params[:page]).per(6)
       @index = "商品"
    else
       @products_all = Product.joins(:genre).where(genres: { is_genres_status: true, id: params[:genre_id] }).where(sales_status: true).order(created_at: :desc)
-      @products = @products_all.page(params[:page]).per(8)
+      @products = @products_all.page(params[:page]).per(6)
       @index = Genre.find( params[:genre_id]).name
    end
  end
