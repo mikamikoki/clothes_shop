@@ -24,7 +24,7 @@ class Customer::OrdersController < ApplicationController
     sum += (cart_product.product.price * 1.1).floor * cart_product.amount
   end
 
-  session[:order][:shipping_cost] =800
+  session[:order][:shipping_cost] =700
   session[:order][:billing_amount]= sum + session[:order][:shipping_cost]
   session[:order][:order_status] = 0
   session[:order][:customer_id] = current_customer.id

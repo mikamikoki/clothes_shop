@@ -5,28 +5,34 @@
         <div class ="danger"><%= flash[:danger] %></div>
 
     <%= form_with(model: @product, url: admin_products_path, method: :post, local: true) do |f| %>
-        <table align="center">
-        	<tr>
-        		<th><%= f.label :image %></th>
-                <td><%= f.attachment_field :image %></td>
-        	</tr>
-            <tr>
-                <th><%= f.label :商品名 %></th>
-            	<td><%= f.text_field :name, class: "form" %></td>
-            </tr>
-            <tr>
-            	<th><%= f.label :商品説明 %></th>
-            	<td><%= f.text_area :explanation %></td>
-            </tr>
-            <tr>
-            	<th><%= f.label :ジャンル %></th>
-            	<td><%= f.collection_select(:genre_id, Genre.where(is_genres_status: true), :id, :name, prompt: "選択してください") %></td>
-            </tr>
-            <tr>
-            	<th><%= f.label :税抜価格 %></th>
-            	<td>￥<%= f.text_field :price %></td>
-            </tr>
-            <tr>
+
+        <div class="col-sm-10">
+        	<div class="form-group col-sm-9">
+        	  <%= f.label :image %>
+              <%= f.attachment_field :product_images_images , multiple: true %>
+        	</div>
+
+            <div class="form-group col-sm-9">
+              <%= f.label :商品名 %>
+              <%= f.text_field :name, class: "form" %>
+            </div>
+
+            <div class="form-group col-sm-9">
+              <%= f.label :商品説明 %>
+              <%= f.text_area :explanation %>
+            </div>
+
+            <div class="form-group col-sm-9">
+              <%= f.label :ジャンル %>
+              <%= f.collection_select(:genre_id, Genre.where(is_genres_status: true), :id, :name, prompt: "選択してください") %>
+            </div>
+
+            <div class="form-group col-sm-9">
+              <%= f.label :税抜価格 %>
+              ￥<%= f.text_field :price %>
+            </div>
+
+            <div class="form-group col-sm-9">
                 <th>販売ステータス</th>
                 <td>
                 	<%= f.radio_button :sales_status, true  %>
@@ -34,11 +40,13 @@
                     <%= f.radio_button :sales_status, false %>
                     <%= f.label :sales_status, "販売停止中" %>
                 </td>
-            </tr>
+            </div>
+
             <tr>
                 <td>
                     <%= f.submit "新規登録",class:"btn btn-success" %>
                     <% end %>
                 </td>
             </tr>
-        </table>
+        </div>
+

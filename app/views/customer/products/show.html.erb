@@ -8,8 +8,12 @@
         <%= render 'customer/products/genre_serch_form', genres: @genres %>
     </div>
 <!--<%# provide(:title, "#{@product.name}") %>-->
-    <div class="col-xs-4 col-xs-offset-2 product-show">
-      <%= attachment_image_tag(@product, :image, size: "340x220", fallback: "no_image.jpg" ) %>
+    <div class="col-lg-4" align="center" >
+      <div class="slider">
+      <% @product.product_images.each do |product_image| %>
+      <%= attachment_image_tag(product_image, :image, size: "340x220", fallback: "no_image.jpg" ) %>
+      <% end %>
+      </div>
     </div>
 
     <div class="col-xs-6 product-show">

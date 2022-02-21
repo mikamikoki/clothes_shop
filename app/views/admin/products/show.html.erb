@@ -5,7 +5,11 @@
 <div class="container">
   <div class="row">
   	<div class="col-lg-4" align="center" >
-  		<%= attachment_image_tag(@product, :image,size: "300x217", fallback: "no_image.jpg") %>
+  		<div class="slider">
+  		<% @product.product_images.each do |product_image| %>
+  		<%= attachment_image_tag(product_image, :image,size: "300x217", fallback: "no_image.jpg") %>
+  		<% end %>
+  		</div>
   	</div>
   	<div class="col-lg-8">
 			<table>
@@ -43,3 +47,8 @@
 		</div>
 	</div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>

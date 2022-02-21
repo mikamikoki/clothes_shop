@@ -1,9 +1,11 @@
 class Customer::HomesController < ApplicationController
 
   def top
-    @products = Product.joins(:genre).where(genres: { is_genres_status: true }).where(sales_status: true).order("RANDOM()").limit(4)
     #=> :asc,古い順 :desc,新しい順
+    @products_all = Product.joins(:genre).where(genres: { is_genres_status: true }).where(sales_status: true).order(created_at: :desc)
     @genres = Genre.where(is_genres_status: true)
+    # @product = Product.find(params[:id])
+    @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(5)
   end
 
 
@@ -12,6 +14,6 @@ class Customer::HomesController < ApplicationController
 
   private
    def product_params
-     parmas.require(:product).permit(:name, :explanation, :price, :image, :sales_status, :genre_id)
+     parmas.require(:product).permit(:name, :explanation, :price, :sales_status, :genre_id, product_images_images: [])
    end
 end

@@ -51,6 +51,8 @@ end
       end
 
       resources :addresses,only: [:index,:create,:edit,:update,:destroy]
+
+
     end
   end
 end

@@ -14,7 +14,7 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if params[:product][:price].present? && params[:product][:name].present? && params[:product][:explanation].present? && params[:product][:genre_id].present? && params[:product][:image].present?
+    if params[:product][:price].present? && params[:product][:name].present? && params[:product][:explanation].present? && params[:product][:genre_id].present? && params[:product][:product_images_images].present?
       # 価格は半角数字0 ~ 9のみ登録可能で、それ以外は登録出来ないようにするif文
       if params[:product][:price].to_s.ord >= 48 && params[:product][:price].to_s.ord <= 57
         # 保存に成功した時のif文
@@ -49,7 +49,7 @@ class Admin::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     # 商品のカラムが存在しているかどうかのif文
-    if params[:product][:price].present? && params[:product][:name].present? && params[:product][:explanation].present? && params[:product][:genre_id].present? && params[:product][:image].present?
+    if params[:product][:price].present? && params[:product][:name].present? && params[:product][:explanation].present? && params[:product][:genre_id].present? && params[:product][:product_images_images].present?
       # 価格は半角数字のみ登録可能で、それ以外は登録出来ないようにするif文
       if params[:product][:price].to_s.ord >= 48 && params[:product][:price].to_s.ord <= 57
         # 更新に成功した時のif文
@@ -77,6 +77,6 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :explanation, :image, :genre_id, :price, :sales_status)
+    params.require(:product).permit(:name, :explanation, :genre_id, :price, :sales_status, product_images_images: [])
   end
 end

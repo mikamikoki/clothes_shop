@@ -140,3 +140,9 @@ a {
 .navbar-toggler {
     background-color:white !important;
 }
+
+.slider { padding: 0;}
+.slider img { width: 100%;}
+.slider div { margin: 0 5px;}
+.slider .slick-next { right: 17px;　z-index: 100;}
+.slider .slick-prev { left: 23px; z-index: 100;}

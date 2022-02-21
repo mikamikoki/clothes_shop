@@ -3,6 +3,7 @@ class Customer::ProductsController < ApplicationController
 before_action :authenticate_customer!, only: [:show]
 
  def index
+    # @product = Product.find(params[:id])
     @genres = Genre.where(is_genres_status: true)
    if params[:genre_id].nil?
       @products_all = Product.joins(:genre).where(genres: { is_genres_status: true }).where(sales_status: true).order(created_at: :desc)
@@ -25,7 +26,7 @@ before_action :authenticate_customer!, only: [:show]
 
   private
   def product_params
-		parmas.require(:product).permit(:name, :explanation, :price, :image, :sales_status)
+		parmas.require(:product).permit(:name, :explanation, :price, :sales_status, product_images_images: [])
 	end
 
 
