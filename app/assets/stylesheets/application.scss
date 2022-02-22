@@ -146,3 +146,23 @@ a {
 .slider div { margin: 0 5px;}
 .slider .slick-next { right: 17px;　z-index: 100;}
 .slider .slick-prev { left: 23px; z-index: 100;}
+
+
+.card {
+  margin: 0 auto 60px;
+  margin-bottom: 50px;
+  //height: 370px;
+}
+
+.set-height-card {
+  //height: 400px;
+  width: 100%;
+}
+
+.card-slider {
+  width: 50%;
+}
+
+.jscroll-inner {
+  padding-bottom: 200px;
+}
