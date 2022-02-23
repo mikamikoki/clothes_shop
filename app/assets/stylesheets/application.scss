@@ -21,14 +21,21 @@
 
  * { font-family: 'Sedgwick Ave', sans-serif; }
 
- .jumbotron {
+// .background {
+//   background-color: black;
+//   // background-image: image-url("back.image1.jpeg");
+//   // background-size: cover;
+//   // margin-bottom: 0 !important;
+//   // // padding: 5rem;
+//   // min-height: 100vh;
+// }
+
+.background-container{
   background-image: image-url("back.image1.jpeg");
   background-size: cover;
   margin-bottom: 0 !important;
-  // padding: 5rem;
   min-height: 100vh;
 }
-
 
 .card-img-overlay{
   padding: 0;
@@ -102,7 +109,7 @@ a {
 .example p {
   position: absolute;/*絶対配置*/
   color: red;
-  top: 90%;
+  top: 80%;
   left: 5%;
   font-weight: bold;
   font-size: 1.5em;
@@ -131,6 +138,8 @@ a {
 .example img {
   width: 1200px;
   height: 400px;
+  margin-bottom: 50px;
+  margin-top: 50px;
   }
   .pagination {
   justify-content: center;
@@ -142,7 +151,10 @@ a {
 }
 
 .slider { padding: 0;}
-.slider img { width: 100%;}
+.slider img {
+  width: 100%;
+  max-width: 400px;
+}
 .slider div { margin: 0 5px;}
 .slider .slick-next { right: 17px;　z-index: 100;}
 .slider .slick-prev { left: 23px; z-index: 100;}
@@ -160,7 +172,7 @@ a {
 }
 
 .card-slider {
-  width: 50%;
+  //width: 50%;
 }
 
 .jscroll-inner {

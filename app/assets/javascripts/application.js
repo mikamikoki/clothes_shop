@@ -34,6 +34,7 @@ $(document).on('turbolinks:load', function() {
 $(document).on ("turbolinks:load", function(){
 // $(document).ready(function(){
   $('.slider').slick({
+    variableWidth: true,
     autoplay: true, //自動再生
     infinite: true, //スライドのループ有効化
     dots: true, //ドットのナビゲーションを表示
@@ -42,8 +43,8 @@ $(document).on ("turbolinks:load", function(){
     responsive: [{
       breakpoint: 768, //ブレークポイントが768px
       settings: {
-        slidesToShow: 3, //表示するスライドの数
-        slidesToScroll: 3, //スクロールで切り替わるスライドの数
+        slidesToShow: 1, //表示するスライドの数
+        slidesToScroll: 1, //スクロールで切り替わるスライドの数
       }
     }, {
       breakpoint: 480, //ブレークポイントが480px
