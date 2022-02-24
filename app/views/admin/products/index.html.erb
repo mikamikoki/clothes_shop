@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class='col-lg-2'>
+    <div class='col-lg-2' style="margin-top: 50px">
 			<h5>商品一覧</h5>
 			<div class="success"><%= flash[:success] %></div>
 		</div>
@@ -28,9 +28,9 @@
 		<% @products.each do |product| %>
 			<tr>
 				<th><%= product.id %></th>
-				<th class="products_name"><%= link_to product.name, admin_product_path(product) %></th>
+				<th nowrap><%= link_to product.name, admin_product_path(product) %></th>
 				<th>￥<%= (product.price).to_s(:delimited) %></th>
-				<th><%= product.genre.name %></th>
+				<th nowrap><%= product.genre.name %></th>
 				<th><% if product.sales_status == true %>
 						販売中
 					<% else %>

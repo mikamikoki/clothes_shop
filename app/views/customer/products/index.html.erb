@@ -1,27 +1,69 @@
-<div class="row">
+<!--<div class="row">-->
     <!--<div class="col-md-3">-->
     <!--    <#%= render 'genre_serch_form', genres: @genres %>-->
     <!--</div>-->
-  	<div class="col-md-8 offset-sm-1">
-      <h2><%= "#{@index}一覧 （全#{@products_all.count}件）" %></h2>
-          <div class="flex-wrap mb-3 w-100">
-              <%= paginate @products %>
-                <% @products.each do |product| %>
+<!--  	<div class="col-md-8 offset-sm-1">-->
+<!--      <h2><#%= "#{@index}一覧 （全#{@products_all.count}件）" %></h2>-->
+<!--          <div class="flex-wrap mb-3 w-100">-->
+<!--              <#%= paginate @products %>-->
+<!--                <#% @products.each do |product| %>-->
 
-                    <div class="">
-                        <div class="slider">
-                            <% product.product_images.each do |product_image| %>
-                            <%= attachment_image_tag(product_image, :image,size: "180x130", fallback: "no_image.jpg") %>
-                            <% end %>
-                        </div>
-
-
-                        <%= link_to product.name, product_path(product),class: "nav-link text-dark" %><br>
+<!--                    <div class="">-->
+<!--                        <div class="slider">-->
+<!--                            <#% product.product_images.each do |product_image| %>-->
+<!--                            <#%= attachment_image_tag(product_image, :image,size: "180x130", fallback: "no_image.jpg") %>-->
+<!--                            <#% end %>-->
+<!--                        </div>-->
 
 
-                    　　￥<%= (product.price * 1.1).to_i.to_s(:delimited) %>
-                    </div>
+<!--                        <#%= link_to product.name, product_path(product),class: "nav-link text-dark" %><br>-->
+
+
+<!--                    　　￥<#%= (product.price * 1.1).to_i.to_s(:delimited) %>-->
+<!--                    </div>-->
+<!--                <#% end %>-->
+<!--          </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="row">
+  <div class="col-lg-9 col-md-12">
+    <div class="card-deck">
+        <h2><%= "#{@index}一覧 （全#{@products_all.count}件）" %></h2>
+
+      <div class="jscroll-tmp">
+        <% @products.each do |product| %>
+          <div class="card" style="margin-bottom: 50px">
+            <div class="card-slider slider" >
+              <% product.product_images.each do |product_image| %>
+                <%= attachment_image_tag product_image, :image, class:"img-fluid"; %>
+              <% end %>
+            </div>
+            <div class="card-body">
+              <p class="card-title">
+                <%= link_to(product_path(product), class:"text-dark") do %>
+                  <strong><i class="far fa-flag"></i><span> <%= product.name %></span></strong>
                 <% end %>
-          </div>
+              </p>
+              <p class="card-text">Price：<%= product.price %></p>
+            </div>
+        </div>
+        <% end %>
+        <%= paginate @products %>
+      </div>
     </div>
+  </div>
 </div>
+
+<script>
+$(function() {
+  var jscrollOption = {
+      loadingHtml: '読み込み中・・・',
+      autoTrigger: true,
+      padding: 80,
+      nextSelector: '.pagination > span.next > a',
+      contentSelector: '.jscroll-tmp'
+  };
+  $('.jscroll-tmp').jscroll(jscrollOption);
+});
+</script>

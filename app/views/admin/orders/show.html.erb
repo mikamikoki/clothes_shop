@@ -34,11 +34,11 @@
 		 <table class="table table-bordered table-inverse">
 			<thead>
 			 <tr class="info">
-			  <th class="col-xs-4">商品名</th>
-			  <th>単価（税込）</th>
-			  <th>数量</th>
-			  <th>小計</th>
-			  <th>製作ステータス</th>
+			  <th nowrap>商品名</th>
+			  <th nowrap>単価（税込）</th>
+			  <th nowrap>数量</th>
+			  <th nowrap>小計</th>
+			  <th nowrap>製作ステータス</th>
        </tr>
 			</thead>
 				<tbody>
@@ -49,7 +49,7 @@
 	      <% end %>
 				<% @order_details.each do |order_detail| %>
 					<tr>
-			     <td class="text-left"><%= order_detail.product.name %></td>
+			     <td class="text-left" nowrap><%= order_detail.product.name %></td>
 			     <td class="text-right">¥<%= (order_detail.price).to_s(:delimited, delimiter: ',') %></td>
 			     <td class="text-right"><%= order_detail.order_quantity %></td>
 			     <td class="text-right">¥<%= ((order_detail.product.price * 1.1).floor * (order_detail.order_quantity)).to_s(:delimited, delimiter: ',') %></td>
@@ -98,6 +98,8 @@
 	  </div>
 	  </div>
   </div>
+  <br>
+  <br>
   <br>
   <br>
   <br>
