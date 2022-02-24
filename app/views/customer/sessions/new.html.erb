@@ -1,8 +1,9 @@
+<div class="sing_in_back">
 <div class=“row”>
-  <h2>会員の方はこちらからログイン</h2>
+    <h2>会員の方はこちらからログイン</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    
+
     <div class="field">
       <%= f.label :メールアドレス %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -22,4 +23,5 @@
 
   <%= link_to "こちら", new_customer_registration_path %>
   <span> から新規登録を行ってください。</span>
+</div>
 </div>
