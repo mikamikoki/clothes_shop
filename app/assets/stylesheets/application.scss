@@ -186,3 +186,9 @@ a {
 .about {
   color: white;
 }
+
+.registration_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+}
