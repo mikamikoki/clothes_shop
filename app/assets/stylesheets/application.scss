@@ -220,3 +220,50 @@ a {
   margin-bottom: 0 !important;
   min-height: 100vh;
 }
+
+div.img-hidden {
+  height: 300px;
+  overflow: hidden;
+}
+
+
+.jscroll-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-bottom: 0px;
+
+  .pagination {
+    display: none;
+  }
+
+  .card {
+    width: 80%;
+  }
+  @media screen and (max-width: 700px) {
+    .card {
+      width: 45%;
+    }
+
+  }
+  @media screen and (min-width: 700px) {
+    .card {
+      flex: none;
+    }
+
+  }
+}
+
+.jscroll-added {
+  width: 100%;
+
+  > .jscroll-tmp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+
+.test-text {
+  margin-bottom: 50px;
+}

@@ -5,7 +5,7 @@ class Customer::HomesController < ApplicationController
     @products_all = Product.joins(:genre).where(genres: { is_genres_status: true }).where(sales_status: true).order(created_at: :desc)
     @genres = Genre.where(is_genres_status: true)
     # @product = Product.find(params[:id])
-    @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(5)
+    @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(4)
   end
 
 

@@ -35,6 +35,7 @@ $(document).on ("turbolinks:load", function(){
 // $(document).ready(function(){
   $('.slider').slick({
     variableWidth: true,
+    adaptiveHeight: true,
     autoplay: true, //自動再生
     infinite: true, //スライドのループ有効化
     dots: true, //ドットのナビゲーションを表示
