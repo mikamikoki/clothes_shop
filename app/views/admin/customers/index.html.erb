@@ -1,24 +1,32 @@
-<h2 class="head-line title_h2 text-center">会員一覧</h2>
-<div class="row">
-  <div class="col-xs-10 col-xs-offset-1">
-    <div class="table-responsive col-12">
-    <table class="table table-hover table-bordered table-condensed">
-      <thead>
-        <tr class="info">
-          <th>会員ID</th>
-          <th>氏名</th>
-          <th>メールアドレス</th>
-          <th>ステータス</th>
-        </tr>
-      </thead>
+<div class="sing_in_back">
+  <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-      <tbody>
+    <h2 class="head-line title_h2 text-center">会員一覧</h2>
+    <div class="row">
+  <!--<div class="col-xs-10 col-xs-offset-1">-->
+      <div class="table-responsive-sm">
+        <table class="table table-inverse">
+          <thead>
+            <tr class="info">
+              <th nowrap>会員ID</th>
+              <th nowrap>氏名</th>
+              <th nowrap>メールアドレス</th>
+              <th nowrap>ステータス</th>
+            </tr>
+          </thead>
+
+          <tbody>
         <% @customers.each do |customer| %>
           <tr>
             <td class="info col-xs-1">
               <%= customer.id %>
             </td>
-            <td class="text-left">
+            <td nowrap class="text-left">
               <%= link_to admin_customer_path(customer), class: "btn-link"  do %>
                 <i class="far fa-user"></i>
                 <%= customer.last_name %> <%= customer.first_name %>
@@ -37,13 +45,14 @@
           </tr>
         <% end %>
       </tbody>
-    </table>
+        </table>
     </div>
   </div>
     <div class= "text-center"><%= paginate(@customers) %></div>
+  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
