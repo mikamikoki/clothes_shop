@@ -1,6 +1,7 @@
 <div class="sing_in_back">
 <div class=“row”>
-    <h2>会員の方はこちらからログイン</h2>
+    <h2>会員の方は<br>
+    こちらからログイン</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -23,5 +24,11 @@
 
   <%= link_to "こちら", new_customer_registration_path %>
   <span> から新規登録を行ってください。</span>
+  <br>
+  <br>
+
+  <h3>※商品の購入には<br>
+  会員登録が必要です
+  </h3>
 </div>
 </div>
